@@ -6,9 +6,9 @@ The purpose of this analysis is to identify UFO sightings based on a number of s
 
 # Results
 
-The data is now easily searchable by using JavaScript. Here is how one might use it:
+The data is now easily searchable by using JavaScript to filter the information. Here is how one might use it:
 
-## Filter example:
+### Filtering examples:
 
 Enter a date into the date field and press enter.
 
