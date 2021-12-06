@@ -77,10 +77,8 @@ for (let i = 0; i <= 4; i++) {
   })
 }
 
-
 console.log(fieldData)
 
-//fieldData.push
 d3.selectAll("input").on("change", function(){
   
   fields = d3.selectAll("input");
@@ -90,7 +88,7 @@ d3.selectAll("input").on("change", function(){
     if (fieldData[i].value != fields.nodes()[i].value)
     {
       console.log(fields.nodes()[i].id + " Field Changed");
-      fieldData[i].value = fields.nodes()[i].value
+      fieldData[i].value = fields.nodes()[i].value.toLowerCase()
       filterTable(fieldData);
       break;
     }
