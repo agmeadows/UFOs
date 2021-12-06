@@ -22,4 +22,6 @@ If you want to broaden the search and only view by state, clear all other fields
 
 ![Seach Ex 1](Resources/SearchEx3.PNG)
 
+# Summary
 
+Through the use of JavaScript, we have been able to take a large set of date and filter it dynamically based on user input. This allows the data to be easily digested and to only view the data that is necessary.
