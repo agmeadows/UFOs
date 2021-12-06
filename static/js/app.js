@@ -64,7 +64,7 @@ fields = d3.selectAll("input")
 for (let i = 0; i <= 4; i++) {
   fieldData.push({
     key: fields.nodes()[i].id,
-    value: fields.nodes()[i].placeholder
+    value: fields.nodes()[i].value
   })
 }
 
