@@ -48,23 +48,19 @@ function updateFilters(fieldData) {
   // 7. Use this function to filter the table when data is entered.
   function filterTable(fieldData) {
 
-    console.log(fieldData)
     // 8. Set the filtered data to the tableData.
     let filteredData = tableData
-  
+    console.log(fieldData)
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
-    filteredData = filteredData
-      .filter(row => row.datetime === fieldData[0]["value"] &&
-      row.city === fieldData[1]["value"]
-        
-      );
-/*
+    
+    filteredData = filteredData.filter(
+      row => row.datetime === fieldData[0]["value"] && 
       row.city === fieldData[1]["value"] && 
       row.state === fieldData[2]["value"] && 
       row.country === fieldData[3]["value"] && 
       row.shape === fieldData[4]["value"]
-      */
+    );
     console.log(filteredData)
   
     // 10. Finally, rebuild the table using the filtered data
@@ -89,8 +85,8 @@ d3.selectAll("input").on("change", function(){
   
   fields = d3.selectAll("input");
   for (let i = 0; i <= 4; i++) {
-    console.log(fieldData[i].value)
-    console.log(fields.nodes()[i].value)
+    console.log("orig " + fieldData[i].value)
+    console.log("new " + fields.nodes()[i].value)
     if (fieldData[i].value != fields.nodes()[i].value)
     {
       console.log(fields.nodes()[i].id + " Field Changed");
