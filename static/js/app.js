@@ -23,73 +23,42 @@ function buildTable(data) {
   });
 }
 
-// 1. Create a variable to keep track of all the filters as an object.
-var filters = [];
+// Use this function to filter the table when data is entered.
+function filterTable(fieldData) {
 
-// 3. Use this function to update the filters. 
-function updateFilters(fieldData) {
-    console.log("in func")
+  // Set the filtered data to the tableData.
+  let filteredData = tableData
+  console.log(fieldData)
   
-    // 4b. Save the value that was changed as a variable.
-    fieldVal = fieldData.value;
-    // 4c. Save the id of the filter that was changed as a variable.
-    fieldID = fieldData.id
-    console.log(fieldID)
-    // 5. If a filter value was entered then add that filterId and value
-    // to the filters list. Otherwise, clear that filter from the filters object.
-
-    
-    console.log(filteredData)
-    // 6. Call function to apply all filters and rebuild the table
-    buildTable(filteredData);
-  
+  // Check each field and filter
+  if (fieldData[0]["value"] != '')
+  {
+    filteredData = filteredData.filter(row => row.datetime === fieldData[0]["value"])
   }
-  
-  // 7. Use this function to filter the table when data is entered.
-  function filterTable(fieldData) {
-
-    // 8. Set the filtered data to the tableData.
-    let filteredData = tableData
-    console.log(fieldData)
-    // 9. Loop through all of the filters and keep any data that
-    // matches the filter values
-    
-    if (fieldData[0]["value"] != '')
-    {
-      filteredData = filteredData.filter(row => row.datetime === fieldData[0]["value"])
-    }
-    if (fieldData[1]["value"] != '')
-    {
-      filteredData = filteredData.filter(row => row.city === fieldData[1]["value"])
-    }
-    if (fieldData[2]["value"] != '')
-    {
-      filteredData = filteredData.filter(row => row.state === fieldData[2]["value"])
-    }
-    if (fieldData[3]["value"] != '')
-    {
-      filteredData = filteredData.filter(row => row.country === fieldData[3]["value"])
-    }
-    if (fieldData[4]["value"] != '')
-    {
-      filteredData = filteredData.filter(row => row.shape === fieldData[4]["value"])
-    }
-    
-    /*filteredData = filteredData.filter(
-      row => row.datetime === fieldData[0]["value"] && 
-      row.city === fieldData[1]["value"] && 
-      row.state === fieldData[2]["value"] && 
-      row.country === fieldData[3]["value"] && 
-      row.shape === fieldData[4]["value"]
-    );*/
-
-    console.log(filteredData)
-  
-    // 10. Finally, rebuild the table using the filtered data
-    buildTable(filteredData);
+  if (fieldData[1]["value"] != '')
+  {
+    filteredData = filteredData.filter(row => row.city === fieldData[1]["value"])
   }
-  
-// 2. Attach an event to listen for changes to each filter
+  if (fieldData[2]["value"] != '')
+  {
+    filteredData = filteredData.filter(row => row.state === fieldData[2]["value"])
+  }
+  if (fieldData[3]["value"] != '')
+  {
+    filteredData = filteredData.filter(row => row.country === fieldData[3]["value"])
+  }
+  if (fieldData[4]["value"] != '')
+  {
+    filteredData = filteredData.filter(row => row.shape === fieldData[4]["value"])
+  }
+
+  console.log(filteredData)
+
+  // Rebuild the table using the filtered data
+  buildTable(filteredData);
+}
+
+// Store form defaults
 fieldData = [];
 fields = d3.selectAll("input")
 for (let i = 0; i <= 4; i++) {
@@ -101,8 +70,10 @@ for (let i = 0; i <= 4; i++) {
 
 console.log(fieldData)
 
+// Attach an event to listen for changes to each filter
 d3.selectAll("input").on("change", function(){
   
+  // Store values and send to filter function
   fields = d3.selectAll("input");
   for (let i = 0; i <= 4; i++) {
     console.log("orig " + fieldData[i].value)
