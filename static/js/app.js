@@ -68,7 +68,7 @@ function updateFilters(fieldData) {
   }
   
 // 2. Attach an event to listen for changes to each filter
-fieldData = [];
+/*fieldData = [];
 fields = d3.selectAll("input")
 for (let i = 0; i <= 4; i++) {
   fieldData.push({
@@ -76,6 +76,7 @@ for (let i = 0; i <= 4; i++) {
     value: fields.nodes()[i].placeholder
   })
 }
+*/
 
 console.log(fieldData)
 
